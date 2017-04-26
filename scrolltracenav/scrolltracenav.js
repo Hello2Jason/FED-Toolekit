@@ -1,5 +1,5 @@
 function scrollTraceNav(sectionClassName, navId, containerId) {
-    var container = containerId ? document.getElementById(containerId) : documentElement;
+    var container = containerId ? document.getElementById(containerId) : document;
     var sections = container.getElementsByClassName(sectionClassName);
     var menu = document.getElementById(navId);
     var list = menu.getElementsByTagName("a");
@@ -27,7 +27,7 @@ function scrollTraceNav(sectionClassName, navId, containerId) {
 function getScrollOffsets(_w) {//获取页面的滚动位置
     _w = _w || window;
     //for all and IE9+
-    if (_w.pageXOffset != null) return {
+    if (_w.pageXOffset !== null) return {
         x: _w.pageXOffset,
         y: _w.pageYOffset
     };
@@ -43,3 +43,5 @@ function getScrollOffsets(_w) {//获取页面的滚动位置
         y: _d.body.scrpllTop
     };
 }
+
+scrollTraceNav('sec', 'navbar');
